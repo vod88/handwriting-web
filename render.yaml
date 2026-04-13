@@ -1,5 +1,4 @@
 services:
-  # 后端 - Python
     - type: web
     name: handwriting-backend
     env: python
@@ -9,9 +8,7 @@ services:
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: python app.py
-    # Render 会自动注入 PORT，app.py 里已经支持
 
-  # 前端 - Vue
     - type: web
     name: handwriting-frontend
     env: node
