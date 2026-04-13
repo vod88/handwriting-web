@@ -1,0 +1,23 @@
+services:
+  # 后端 - Python
+    - type: web
+    name: handwriting-backend
+    env: python
+    region: singapore
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    # Render 会自动注入 PORT，app.py 里已经支持
+
+  # 前端 - Vue
+    - type: web
+    name: handwriting-frontend
+    env: node
+    region: singapore
+    plan: free
+    branch: main
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run serve -- --port $PORT --host 0.0.0.0
